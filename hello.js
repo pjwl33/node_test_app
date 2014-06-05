@@ -70,7 +70,6 @@
 
 
 
-
 //HEROKU NODE APP CODE
 
 var express = require('express');
@@ -81,15 +80,11 @@ var fs = require('fs');
 app.use(logfmt.requestLogger());
 
 app.get('/', function(req, resp) {
-  fs.readFile('views/index.html', function(err, content) {
-    resp.write(content);
-  });
+  resp.sendfile(__dirname + '/views/index.html');
 });
 
 app.get('/welcome', function(req, resp) {
-  fs.readFile('views/welcome.html', function(err, content) {
-    resp.write(content);
-  });
+  resp.sendfile(__dirname + '/views/welcome.html');
 });
 
 var port = Number(process.env.PORT || 5000);
