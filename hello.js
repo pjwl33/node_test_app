@@ -1,22 +1,22 @@
-var http = require('http');
-var message = "Hello world!";
+// var http = require('http');
+// var message = "Hello world!";
 
-var makeRequest = function(message) {
-  var options = {
-    host: 'localhost', port: 5000, path: '/', method: 'POST'
-  };
+// var makeRequest = function(message) {
+//   var options = {
+//     host: 'localhost', port: 5000, path: '/', method: 'POST'
+//   };
 
-  var request = http.request(options, function(resp) {
-    resp.on('data', function(data){
-      console.log(data);
-    });
-  });
+//   var request = http.request(options, function(resp) {
+//     resp.on('data', function(data){
+//       console.log(data);
+//     });
+//   });
 
-  request.write(message);
-  request.end();
-};
+//   request.write(message);
+//   request.end();
+// };
 
-exports = makeRequest;
+// exports = makeRequest;
 // var http = require('http');
 // var fs = require('fs');
 // var server = http.createServer();
@@ -73,26 +73,26 @@ exports = makeRequest;
 
 //HEROKU NODE APP CODE
 
-// var express = require('express');
-// var logfmt = require('logfmt');
-// var app = express();
-// var fs = require('fs');
+var express = require('express');
+var logfmt = require('logfmt');
+var app = express();
+var fs = require('fs');
 
-// app.use(logfmt.requestLogger());
+app.use(logfmt.requestLogger());
 
-// app.get('/', function(req, resp) {
-//   fs.readFile('views/index.html', function(err, content) {
-//     resp.write(content);
-//   });
-// });
+app.get('/', function(req, resp) {
+  fs.readFile('views/index.html', function(err, content) {
+    resp.write(content);
+  });
+});
 
-// app.get('/welcome', function(req, resp) {
-//   fs.readFile('views/welcome.html', function(err, content) {
-//     resp.write(content);
-//   });
-// });
+app.get('/welcome', function(req, resp) {
+  fs.readFile('views/welcome.html', function(err, content) {
+    resp.write(content);
+  });
+});
 
-// var port = Number(process.env.PORT || 5000);
-// app.listen(port, function() {
-//   console.log('Listening on ' + port);
-// });
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log('Listening on ' + port);
+});
