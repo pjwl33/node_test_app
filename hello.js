@@ -76,11 +76,28 @@ var express = require('express');
 var logfmt = require('logfmt');
 var app = express();
 var fs = require('fs');
+var url = require('url');
+var request = require('request');
+
+app.get('/tweets/:username', function(req, resp) {
+  var username = req.params.username;
+
+  var options = {
+    protocol: 'https:',
+    host: 'api.twitter.com',
+    pathname: '/1.1/statuses/user_timeline.json',
+    query: {screen_name: username, count: 10}
+  };
+
+  var twitterUrl = url.format(options);
+  request(twitterUrl).pipe(resp);
+});
 
 app.use(logfmt.requestLogger());
 
 app.get('/', function(req, resp) {
-  resp.sendfile(__dirname + '/views/index.html');
+  // resp.sendfile(__dirname + '/assets/stylesheets/style.css');
+  resp.render(__dirname + '/views/index.ejs');
 });
 
 app.get('/welcome', function(req, resp) {
