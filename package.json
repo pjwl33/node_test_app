@@ -1,31 +1,35 @@
-{
-  "name": "node_test_app",
-  "version": "0.0.0",
-  "description": "This is an example node app to heroku",
-  "main": "hello.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/pjwl33/node_test_app.git"
-  },
-  "keywords": [
-    "example",
-    "nodejs",
-    "heroku"
-  ],
-  "author": "pjwl33",
-  "license": "pjwl33-personal",
-  "bugs": {
-    "url": "https://github.com/pjwl33/node_test_app/issues"
-  },
-  "homepage": "https://github.com/pjwl33/node_test_app",
-  "dependencies": {
-    "express": "^4.4.1",
-    "logfmt": "^1.1.2"
-  },
-  "engines": {
-    "node": "0.10.26"
-  }
-}
+  {
+    "name": "node_test_app",
+    "version": "0.0.0",
+    "description": "This is an example node app to heroku",
+    "main": "hello.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/pjwl33/node_test_app.git"
+        },
+        "keywords": [
+        "example",
+        "nodejs",
+        "heroku"
+        ],
+        "author": "pjwl33",
+        "license": "pjwl33-personal",
+        "bugs": {
+          "url": "https://github.com/pjwl33/node_test_app/issues"
+          },
+          "homepage": "https://github.com/pjwl33/node_test_app",
+          "dependencies": {
+            "socket.io": "latest",
+            "express": "^4.4.1",
+            "logfmt": "^1.1.2",
+            "jade": "latest",
+            "redis": "latest",
+            "jQuery": "latest"
+            },
+            "engines": {
+              "node": "0.10.26"
+            }
+          }
